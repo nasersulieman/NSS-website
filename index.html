@@ -1,113 +1,442 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NSS | Nader Steel Structure</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NSS | Nader Steel Structure</title>
+  <meta name="description" content="NSS - Nader Steel Structure. Steel fabrication & metal forming in Jordan since 2006. CNC Laser, Plasma, Press Brake, Punching, Professional Welding." />
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
-<style>
-body{
-margin:0;
-background:#0d0d0d;
-color:white;
-font-family:'Poppins',sans-serif;
-text-align:center;
-}
+  <style>
+    :root{
+      --bg:#0d0d0d; --bg2:#070707;
+      --gold:#d4af37; --text:#ffffff; --muted:#cfcfcf;
+      --card:#121212; --line:rgba(255,255,255,.12);
+      --shadow:0 24px 70px rgba(0,0,0,.55);
+      --r:16px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; background:radial-gradient(900px 500px at 20% 0%, rgba(212,175,55,.12), transparent 55%),
+      linear-gradient(180deg, var(--bg2), var(--bg));
+      color:var(--text); font-family:'Poppins',sans-serif;
+      overflow-x:hidden;
+    }
+    a{color:inherit; text-decoration:none}
+    .container{max-width:1100px; margin:auto; padding:0 18px}
 
-.hero{
-height:100vh;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-background:linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.8)),
-url('https://images.unsplash.com/photo-1581091870627-3d2d3a7b8f4b?auto=format&fit=crop&w=1400&q=80');
-background-size:cover;
-background-position:center;
-}
+    /* Header */
+    .header{
+      position:fixed; top:0; left:0; right:0; z-index:999;
+      backdrop-filter: blur(14px);
+      background: rgba(10,10,10,.55);
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+    .header .container{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 18px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:12px;
+      font-family:'Playfair Display',serif;
+    }
+    .brand .mark{
+      width:46px; height:46px; border-radius:14px;
+      display:grid; place-items:center;
+      border:1px solid rgba(212,175,55,.35);
+      background: rgba(212,175,55,.08);
+      box-shadow: 0 10px 24px rgba(0,0,0,.4);
+      letter-spacing:2px;
+    }
+    .brand .name{font-family:'Poppins',sans-serif; font-weight:700}
+    .nav{display:flex; gap:14px; align-items:center}
+    .nav a{
+      padding:10px 10px; border-radius:12px;
+      font-weight:700; font-size:14px;
+      color:rgba(255,255,255,.92);
+      transition:.25s ease;
+    }
+    .nav a:hover{background: rgba(255,255,255,.06)}
+    .actions{display:flex; gap:10px; align-items:center}
 
-.logo{
-font-family:'Playfair Display',serif;
-font-size:80px;
-letter-spacing:10px;
-color:#d4af37;
-}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:12px 16px; border-radius:14px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      font-weight:800; transition:.25s ease;
+    }
+    .btn:hover{border-color: rgba(212,175,55,.45); background: rgba(212,175,55,.10)}
+    .btn-gold{
+      background: var(--gold); color:#000;
+      border-color: rgba(255,255,255,.08);
+      box-shadow: 0 18px 45px rgba(212,175,55,.22);
+    }
+    .btn-gold:hover{transform: translateY(-1px); background:#fff}
+    .lang-link{
+      padding:10px 12px; border-radius:14px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      font-weight:900;
+    }
+    .lang-link:hover{border-color: rgba(212,175,55,.45); background: rgba(212,175,55,.10)}
 
-.subtitle{
-font-size:22px;
-margin-top:10px;
-letter-spacing:3px;
-}
+    /* Hero */
+    .hero{
+      min-height:100vh;
+      display:flex; align-items:center;
+      padding-top:84px;
+      position:relative;
+      background:
+        linear-gradient(rgba(0,0,0,0.82),rgba(0,0,0,0.85)),
+        url('https://images.unsplash.com/photo-1581091870627-3d2d3a7b8f4b?auto=format&fit=crop&w=1600&q=80');
+      background-size:cover; background-position:center;
+      text-align:left;
+    }
+    .hero::after{
+      content:""; position:absolute; inset:0;
+      background: radial-gradient(900px 450px at 20% 20%, rgba(212,175,55,.18), transparent 60%);
+      pointer-events:none;
+    }
+    .hero .content{position:relative}
+    .kicker{
+      display:inline-flex; gap:10px; align-items:center;
+      padding:10px 14px; border-radius:999px;
+      border:1px solid rgba(212,175,55,.35);
+      background: rgba(0,0,0,.35);
+      font-weight:800;
+    }
+    .dot{width:10px; height:10px; border-radius:50%; background:var(--gold); box-shadow:0 0 18px rgba(212,175,55,.55)}
+    .logo{
+      font-family:'Playfair Display',serif;
+      font-size:74px; letter-spacing:10px; color:var(--gold);
+      margin:16px 0 6px;
+    }
+    .subtitle{font-size:18px; letter-spacing:1px; color:rgba(255,255,255,.92)}
+    .lead{
+      margin-top:14px;
+      max-width:760px;
+      color:rgba(255,255,255,.86);
+      line-height:1.9;
+      font-size:16px;
+    }
+    .hero-cta{display:flex; gap:12px; flex-wrap:wrap; margin-top:20px}
+    .mini{
+      margin-top:22px;
+      display:flex; gap:12px; flex-wrap:wrap;
+    }
+    .mini .box{
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.25);
+      border-radius:16px;
+      padding:14px 16px;
+      min-width: 190px;
+    }
+    .mini .k{color:var(--muted); font-weight:700; font-size:13px}
+    .mini .v{font-weight:900; margin-top:4px}
 
-.button{
-margin-top:40px;
-padding:15px 40px;
-background:#d4af37;
-color:black;
-text-decoration:none;
-font-weight:bold;
-border-radius:5px;
-transition:0.3s;
-}
+    /* Sections */
+    .section{padding:84px 0}
+    h2{color:var(--gold); margin:0 0 10px}
+    .p{color:rgba(255,255,255,.85); line-height:1.9; margin:0; max-width:860px}
 
-.button:hover{
-background:white;
-}
+    .grid{
+      margin-top:18px;
+      display:grid;
+      grid-template-columns: repeat(3,1fr);
+      gap:14px;
+    }
+    .card{
+      background: rgba(255,255,255,.03);
+      border:1px solid rgba(255,255,255,.10);
+      border-radius: var(--r);
+      padding:18px;
+      box-shadow: 0 18px 60px rgba(0,0,0,.35);
+      position:relative;
+      overflow:hidden;
+    }
+    .card::after{
+      content:""; position:absolute; inset:-1px;
+      background: radial-gradient(circle at 20% 0%, rgba(212,175,55,.18), transparent 45%);
+      opacity:.6; pointer-events:none;
+    }
+    .card h3{margin:0 0 8px; font-weight:900}
+    .card p{margin:0; color:rgba(255,255,255,.82); line-height:1.8}
 
-.section{
-padding:80px 20px;
-max-width:1000px;
-margin:auto;
-}
+    /* Stats */
+    .stats{
+      margin-top:18px;
+      display:grid;
+      grid-template-columns: repeat(4,1fr);
+      gap:12px;
+      padding:18px;
+      border-radius: 18px;
+      border:1px solid rgba(212,175,55,.24);
+      background: rgba(212,175,55,.06);
+    }
+    .stat{
+      background: rgba(0,0,0,.25);
+      border:1px solid rgba(255,255,255,.10);
+      border-radius: 16px;
+      padding:16px;
+      text-align:center;
+    }
+    .num{
+      font-family:'Playfair Display',serif;
+      font-size:34px;
+      color:var(--gold);
+      letter-spacing:1px;
+    }
+    .lbl{margin-top:6px; color:rgba(255,255,255,.86); font-weight:800}
 
-h2{
-color:#d4af37;
-margin-bottom:20px;
-}
+    /* Projects placeholder */
+    .projects{
+      margin-top:18px;
+      display:grid;
+      grid-template-columns: repeat(3,1fr);
+      gap:14px;
+    }
+    .proj{
+      border-radius: 18px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      min-height: 220px;
+      display:flex; align-items:flex-end;
+      padding:14px;
+      position:relative;
+    }
+    .proj::before{
+      content:""; position:absolute; inset:0;
+      background: radial-gradient(circle at 30% 10%, rgba(212,175,55,.14), transparent 55%),
+                  linear-gradient(180deg, transparent, rgba(0,0,0,.80));
+      pointer-events:none;
+    }
+    .proj .t{position:relative; font-weight:900}
+    .proj .s{position:relative; color:rgba(255,255,255,.78); font-size:13px; margin-top:4px}
 
-.footer{
-padding:30px;
-background:#111;
-color:#777;
-font-size:14px;
-}
-</style>
+    /* Footer */
+    .footer{
+      padding:30px 0;
+      border-top:1px solid rgba(255,255,255,.08);
+      color:#9a9a9a;
+      font-size:14px;
+    }
+    .footer .container{display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap}
+
+    /* Reveal animations */
+    .reveal{opacity:0; transform: translateY(18px); transition:.75s cubic-bezier(.2,.9,.2,1)}
+    .reveal.is-visible{opacity:1; transform: translateY(0)}
+
+    /* Responsive */
+    @media (max-width: 980px){
+      .nav{display:none}
+      .grid{grid-template-columns: 1fr}
+      .stats{grid-template-columns: repeat(2,1fr)}
+      .projects{grid-template-columns: 1fr}
+      .logo{font-size:58px}
+      .hero{text-align:left}
+    }
+  </style>
 </head>
 
 <body>
 
-<div class="hero">
-<div class="logo">NSS</div>
-<div class="subtitle">Nader Steel Structure</div>
-<div class="subtitle">Since 2006</div>
-<a href="https://wa.me/962798769770" class="button">Get a Quote</a>
-</div>
+<header class="header">
+  <div class="container">
+    <a class="brand" href="#top">
+      <span class="mark">NSS</span>
+      <span>
+        <div class="name">Nader Steel Structure</div>
+        <div style="font-size:12px;color:rgba(255,255,255,.75);font-weight:700">Since 2006</div>
+      </span>
+    </a>
 
-<div class="section">
-<h2>About Us</h2>
-<p>
-NSS - Nader Steel Structure is a leading steel fabrication company in Jordan,
-specialized in structural steel, metal forming, heavy machinery operations,
-and custom industrial projects.
-</p>
-</div>
+    <nav class="nav">
+      <a href="#about">About</a>
+      <a href="#services">Steel Services</a>
+      <a href="machines.html">Machines</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
 
-<div class="section">
-<h2>Our Services</h2>
-<p>
-• Structural Steel Fabrication<br>
-• Metal Cutting & Bending<br>
-• Industrial Welding<br>
-• Custom Steel Projects<br>
-• Gates & Residential Works
-</p>
-</div>
+    <div class="actions">
+      <a class="lang-link" href="ar/index.html">AR</a>
+      <a href="#quote" class="btn btn-gold">Get a Quote</a>
+    </div>
+  </div>
+</header>
 
-<div class="footer">
-© 2006 - 2026 NSS | Nader Steel Structure | All Rights Reserved
-</div>
+<section class="hero" id="top">
+  <div class="container content">
+    <div class="kicker reveal"><span class="dot"></span> Steel Structure & Metal Fabrication — Jordan</div>
+
+    <div class="logo reveal">NSS</div>
+    <div class="subtitle reveal">Nader Steel Structure</div>
+    <div class="subtitle reveal">Since 2006</div>
+
+    <p class="lead reveal">
+      Industrial-grade steel fabrication facility delivering precision, speed, and large-scale capability.
+      CNC Fiber Laser (Sheets & Tubes), CNC Plasma, Press Brake, Punching, and Professional Welding.
+    </p>
+
+    <div class="hero-cta reveal">
+      <a href="https://wa.me/962798769770" class="btn btn-gold">WhatsApp</a>
+      <a href="machines.html" class="btn">Explore Machines</a>
+      <a href="#projects" class="btn">View Projects</a>
+    </div>
+
+    <div class="mini reveal">
+      <div class="box"><div class="k">Fast Delivery</div><div class="v">Clear scheduling</div></div>
+      <div class="box"><div class="k">Precision</div><div class="v">Clean fabrication</div></div>
+      <div class="box"><div class="k">Coverage</div><div class="v">All Jordan</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="about">
+  <div class="container">
+    <h2 class="reveal">About NSS</h2>
+    <p class="p reveal">
+      NSS - Nader Steel Structure is a steel fabrication company in Jordan, focused on structural steel,
+      metal forming, and industrial manufacturing. We operate with a company mindset: specifications, supervision,
+      and on-time delivery.
+    </p>
+  </div>
+</section>
+
+<section class="section" id="services">
+  <div class="container">
+    <h2 class="reveal">Steel Services</h2>
+    <p class="p reveal">We specialize in steel work only — fabrication, forming, and industrial production.</p>
+
+    <div class="grid">
+      <div class="card reveal">
+        <h3>Structural Steel Fabrication</h3>
+        <p>Warehouses, hangars, platforms, canopies, and heavy steel structures.</p>
+      </div>
+      <div class="card reveal">
+        <h3>Sheet & Tube Cutting</h3>
+        <p>CNC Fiber Laser (Sheets & Tubes) and CNC Plasma cutting for industrial components.</p>
+      </div>
+      <div class="card reveal">
+        <h3>Metal Forming</h3>
+        <p>Press brake bending, punching, and custom forming for production-ready parts.</p>
+      </div>
+      <div class="card reveal">
+        <h3>Professional Welding</h3>
+        <p>High-strength welded joints for structural and industrial fabrication.</p>
+      </div>
+      <div class="card reveal">
+        <h3>Cladding & Finishing</h3>
+        <p>Clean finishing and industrial-ready outputs with professional look.</p>
+      </div>
+      <div class="card reveal">
+        <h3>Installation</h3>
+        <p>On-site installation with clear timeline and quality control.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="projects">
+  <div class="container">
+    <h2 class="reveal">Projects</h2>
+    <p class="p reveal">We will replace these placeholders with real project photos soon.</p>
+
+    <div class="projects">
+      <div class="proj reveal"><div><div class="t">Warehouse Steel Structure</div><div class="s">Amman • Steel + Cladding</div></div></div>
+      <div class="proj reveal"><div><div class="t">Industrial Canopy</div><div class="s">Zarqa • Heavy Fabrication</div></div></div>
+      <div class="proj reveal"><div><div class="t">Hangar / Large Span</div><div class="s">Irbid • Large Scale</div></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="quote">
+  <div class="container">
+    <h2 class="reveal">Get a Quote</h2>
+    <p class="p reveal">Send us your project details and we will respond fast.</p>
+    <div class="hero-cta reveal">
+      <a href="https://wa.me/962798769770" class="btn btn-gold">Send on WhatsApp</a>
+      <a href="#contact" class="btn">Contact Info</a>
+    </div>
+
+    <div class="stats reveal" id="stats">
+      <div class="stat">
+        <div class="num" data-count="20">0</div>
+        <div class="lbl">Years Experience</div>
+      </div>
+      <div class="stat">
+        <div class="num" data-count="500">0</div>
+        <div class="lbl">Projects Completed</div>
+      </div>
+      <div class="stat">
+        <div class="num" data-count="15">0</div>
+        <div class="lbl">Heavy Machines</div>
+      </div>
+      <div class="stat">
+        <div class="num" data-count="100">0</div>
+        <div class="lbl">Client Satisfaction %</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contact">
+  <div class="container">
+    <h2 class="reveal">Contact</h2>
+    <p class="p reveal">
+      WhatsApp: <a href="https://wa.me/962798769770" style="color:var(--gold);font-weight:900">+962 79 876 9770</a><br>
+      Email: <span style="color:var(--gold);font-weight:900">info@nss.com</span> (edit later)<br>
+      Location: <span style="color:var(--gold);font-weight:900">Jordan</span>
+    </p>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <span>© 2006 - <span id="year"></span> NSS | Nader Steel Structure</span>
+    <a href="#top" style="color:rgba(255,255,255,.75)">Back to top ↑</a>
+  </div>
+</footer>
+
+<script>
+  // Year
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  // Reveal on scroll
+  const obs = new IntersectionObserver((entries)=> {
+    entries.forEach(e => { if(e.isIntersecting) e.target.classList.add("is-visible"); });
+  }, {threshold:.12});
+  document.querySelectorAll(".reveal").forEach(el => obs.observe(el));
+
+  // Stats counter
+  let ran = false;
+  const stats = document.getElementById("stats");
+  const sobs = new IntersectionObserver((entries)=>{
+    if(entries.some(e=>e.isIntersecting) && !ran){
+      ran = true;
+      document.querySelectorAll(".num").forEach(n => animate(n));
+    }
+  }, {threshold:.25});
+  sobs.observe(stats);
+
+  function animate(node){
+    const target = Number(node.dataset.count || "0");
+    const start = performance.now();
+    const dur = 1100;
+
+    function tick(now){
+      const t = Math.min((now - start) / dur, 1);
+      const eased = 1 - Math.pow(1 - t, 3);
+      const val = Math.floor(target * eased);
+      node.textContent = val.toLocaleString("en-US");
+      if(t < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+</script>
 
 </body>
 </html>
