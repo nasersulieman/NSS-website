@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
+
 <head>
 
 <meta charset="UTF-8">
@@ -7,13 +8,15 @@
 
 <title>NSS | نادر للمنشآت المعدنية</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;500;700&display=swap" rel="stylesheet">
+
 <style>
 
 body{
 margin:0;
 background:#0d0d0d;
 color:white;
-font-family:Arial;
+font-family:'Cairo',sans-serif;
 text-align:center;
 }
 
@@ -23,21 +26,26 @@ display:flex;
 flex-direction:column;
 justify-content:center;
 align-items:center;
+background:linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.8)),
+url('https://images.unsplash.com/photo-1581091870627-3d2d3a7b8f4b?auto=format&fit=crop&w=1400&q=80');
+background-size:cover;
+background-position:center;
 }
 
 .logo img{
-width:140px;
+width:130px;
 }
 
 .title{
-font-size:40px;
+font-size:50px;
+letter-spacing:2px;
 margin-top:20px;
 }
 
 .subtitle{
-font-size:20px;
-color:#d4af37;
+font-size:22px;
 margin-top:10px;
+color:#d4af37;
 }
 
 .button{
@@ -48,17 +56,29 @@ color:black;
 text-decoration:none;
 font-weight:bold;
 border-radius:5px;
+transition:0.3s;
+}
+
+.button:hover{
+background:white;
 }
 
 .section{
-padding:60px 20px;
+padding:80px 20px;
+max-width:900px;
+margin:auto;
+}
+
+h2{
+color:#d4af37;
+margin-bottom:20px;
 }
 
 .footer{
+padding:30px;
 background:#111;
-padding:20px;
-font-size:14px;
 color:#777;
+font-size:14px;
 }
 
 </style>
@@ -82,7 +102,7 @@ color:#777;
 </div>
 
 <a href="https://wa.me/962798769770" class="button">
-تواصل واتساب
+طلب عرض سعر
 </a>
 
 </div>
@@ -92,8 +112,31 @@ color:#777;
 <h2>من نحن</h2>
 
 <p>
-شركة نادر للمنشآت المعدنية متخصصة في تصنيع الحديد والقص بالليزر
-وتنفيذ المشاريع المعدنية الكبيرة في الأردن منذ عام 2006.
+
+شركة نادر للمنشآت المعدنية متخصصة في تصنيع الهياكل الحديدية
+والقص بالليزر وتشكيل المعادن باستخدام أحدث الماكينات الصناعية
+في الأردن منذ عام 2006.
+
+</p>
+
+</div>
+
+<div class="section">
+
+<h2>خدماتنا</h2>
+
+<p>
+
+• تصنيع الهياكل المعدنية  
+<br>
+• قص الحديد بالليزر  
+<br>
+• ثني وتشكيل الصفائح المعدنية  
+<br>
+• لحام صناعي احترافي  
+<br>
+• تنفيذ المشاريع المعدنية الكبيرة  
+
 </p>
 
 </div>
@@ -105,4 +148,5 @@ color:#777;
 </div>
 
 </body>
+
 </html>
